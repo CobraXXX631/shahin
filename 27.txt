@@ -1,0 +1,63 @@
+№27
+#include <iostream>
+
+class MyClass {
+private:
+    int privateAttribute; 
+
+public:
+    int publicAttribute1;
+    int publicAttribute2;
+    int publicAttribute3;
+
+    MyClass(int privateValue, int publicValue1, int publicValue2, int publicValue3)
+        : privateAttribute(privateValue),
+        publicAttribute1(publicValue1),
+        publicAttribute2(publicValue2),
+        publicAttribute3(publicValue3)
+    {
+    }
+
+    int getPrivateAttribute() {
+        return privateAttribute;
+    }
+
+    void printAttributes() {
+        std::cout << "privateAttribute: " << privateAttribute << std::endl;
+        std::cout << "publicAttribute1: " << publicAttribute1 << std::endl;
+        std::cout << "publicAttribute2: " << publicAttribute2 << std::endl;
+        std::cout << "publicAttribute3: " << publicAttribute3 << std::endl;
+    }
+};
+
+int main() {
+    MyClass myObject(10, 20, 30, 40); 
+
+    myObject.printAttributes();
+
+    int privateValue = myObject.getPrivateAttribute();
+    std::cout << "privateAttribute: " << privateValue << std::endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+/*
+Вар27
+1. Полиморфизм — это возможность определения поведения объекта на этапе выполнения программы в зависимости от его типа. Это означает, что одна и та же функция может обрабатывать данные различных типов, если эти типы являются производными от одного базового класса.
+
+2. Основные принципы объектно-ориентированного программирования включают в себя инкапсуляцию, наследование и полиморфизм.
+
+Инкапсуляция — это процесс скрытия внутренней реализации объекта от пользователя. Это позволяет разработчикам изменять внутреннюю реализацию без необходимости изменения внешнего интерфейса.
+
+Наследование — это механизм, позволяющий создавать новые классы на основе уже существующих классов. Новый класс наследует все свойства и методы своего родительского класса и может добавлять свои собственные свойства и методы.
+
+Полиморфизм — это способность объектов одного класса реагировать на одно и то же сообщение различными способами. Например, можно написать функцию, которая принимает параметр типа «человек», и эта функция может работать как с конкретными людьми (например, с Джоном), так и с абстрактными понятиями (например, с «людьми вообще»).
+
+*/

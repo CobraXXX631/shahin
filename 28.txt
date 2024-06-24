@@ -1,0 +1,121 @@
+№28
+#include <iostream>
+
+class DistanceConverter {
+private:
+    const double FEET_TO_KILOMETERS_CONSTANT = 0.3048; 
+    const double KILOMETERS_TO_FEET_CONSTANT = 3.28084;
+
+public:
+    double feetToKilometers(double feet) {
+        return feet * FEET_TO_KILOMETERS_CONSTANT;
+    }
+
+    double kilometersToFeet(double kilometers) {
+        return kilometers * KILOMETERS_TO_FEET_CONSTANT;
+    }
+};
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    DistanceConverter converter;
+
+   
+    double distanceInFeet = 0; 
+    std::cout << "Введите футы: ";
+    std::cin >> distanceInFeet;
+    double distanceInKilometers = converter.feetToKilometers(distanceInFeet);
+    std::cout << "Расстояние в километрах: " << distanceInKilometers << std::endl;
+
+    double distanceInKilometers2 = 0; 
+    std::cout << "Введите километры: ";
+    std::cin >> distanceInKilometers2;
+    double distanceInFeet2 = converter.kilometersToFeet(distanceInKilometers2);
+    std::cout << "Расстояние в футах: " << distanceInFeet2 << std::endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Вар28
+1. Дружественные классы позволяют одному классу иметь доступ к приватным членам другого класса. Это может быть полезно, когда два класса тесно связаны и должны взаимодействовать друг с другом, но не должны быть частью одного и того же класса.
+
+```cpp
+class FriendClass {
+    // Приватный член
+    int privateMember;
+
+public:
+    void setPrivateMember(int value) {
+        privateMember = value;
+    }
+};
+
+class MyClass {
+    // Friend declaration
+    friend class FriendClass;
+
+private:
+    int myPrivateMember;
+
+public:
+    void setMyPrivateMember(int value) {
+        myPrivateMember = value;
+    }
+};
+
+// В другом файле или классе
+class FriendClass::setMyPrivateMember(int value) {
+    // Теперь мы можем установить приватный член MyClass
+    myPrivateMember = value;
+}
+```
+
+2. Конструктор и деструктор класса:
+Конструктор - это метод, который вызывается при создании объекта класса. Он используется для инициализации объекта и может выполнять различные задачи, такие как инициализация переменных класса, установка значений по умолчанию и т.д.
+
+Деструктор - это метод, который вызывается при уничтожении объекта класса. Он используется для освобождения ресурсов, которые были заняты объектом, таких как память, файловые дескрипторы и т.д.
+
+```cpp
+class MyClass {
+private:
+    int m_data;
+
+public:
+    // Конструктор
+    MyClass() : m_data(0) {
+        std::cout << "Constructor called" << std::endl;
+    }
+
+    // Деструктор
+    ~MyClass() {
+        std::cout << "Destructor called" << std::endl;
+    }
+
+    void printData() const {
+        std::cout << "Data: " << m_data << std::endl;
+    }
+};
+
+int main() {
+    MyClass obj;
+    obj.printData();
+
+    return 0;
+}
+```
+При выполнении этого кода сначала будет вызван конструктор `MyClass()`, затем метод `printData()`, и после выхода из области видимости `obj` будет вызван деструктор `~MyClass()`.
+
+*/

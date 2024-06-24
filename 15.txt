@@ -1,0 +1,73 @@
+#include <iostream>
+
+class DistanceConverter {
+public:
+    double miles_to_kilometers(double miles) {
+        return miles * 1.61;
+    }
+
+    double kilometers_to_miles(double kilometers) {
+        return kilometers / 1.61;
+    }
+};
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    DistanceConverter converter;
+
+    double miles;
+    std::cout << "Введите расстояние в милях: ";
+    std::cin >> miles;
+
+    double kilometers = converter.miles_to_kilometers(miles);
+    std::cout << "Расстояние в километрах: " << kilometers << std::endl;
+
+    double kilometers2;
+    std::cout << "Введите расстояние в километрах: ";
+    std::cin >> kilometers2;
+
+    double miles2 = converter.kilometers_to_miles(kilometers2);
+    std::cout << "Расстояние в милях: " << miles2 << std::endl;
+
+    return 0;
+}
+//Операторы break и continue в C++ используются для управления потоком выполнения в циклах.
+//
+//1. break - этот оператор прерывает текущий цикл и передает управление на первую команду после этого цикла.Если break встречается внутри вложенных циклов, он прерывает самый внутренний цикл.
+//
+//for (int i = 0; i < 10; ++i) {
+//    if (i == 5) break; // Прервет цикл, когда i станет равно 5
+//    std::cout << i << std::endl; // Выведет числа до 5 включительно
+//}
+//
+//
+//2. continue - этот оператор прерывает текущую итерацию цикла и переходит к следующей итерации.Если continue встречается внутри вложенных циклов, он прерывает текущую итерацию самого внутреннего цикла.
+//
+//for (int i = 0; i < 10; ++i) {
+//    if (i % 2 == 0) continue; // Пропустит четные числа
+//    std::cout << i << std::endl; // Выведет нечетные числа
+//}
+//
+//
+//Операторы break и continue часто используются для оптимизации кода, особенно когда необходимо быстро обработать большое количество данных, пропуская ненужные или некорректные значения.
+//Тернарный оператор в C++ используется для упрощения условных выражений.Он имеет следующую форму :
+//
+//condition ? expression1 : expression2;
+//
+//
+//где condition - это условие, которое должно быть истинным или ложным.Если условие истинно, то выполняется expression1, иначе выполняется expression2.Результатом всего выражения является результат выполнения выбранного выражения.
+//
+//Пример использования тернарного оператора :
+//
+//#include <iostream>
+//
+//int main() {
+//    int a = 5;
+//    int b = 3;
+//    int c = (a > b) ? a : b; // Если a больше b, то c будет равно a, иначе b
+//    std::cout << "The greater number is: " << c << std::endl;
+//    return 0;
+//}
+//
+//
+//В этом примере, если a больше b, то c будет равно a.Если a меньше или равно b, то c будет равно b.

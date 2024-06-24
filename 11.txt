@@ -1,0 +1,98 @@
+#include <iostream>
+#include <vector>
+#include <algorithm> 
+using namespace std;
+float max(vector<float> a) {
+    int temp = 0;
+    int count = 0;
+    for (int i = 0; i < a.size(); i++)
+    {
+        if (a[temp] < a[i])
+        {
+            temp = i;
+        }
+    }
+    for (int i = 0; i < a.size(); i++)
+    {
+        if (a[temp] == a[i]) {
+            count++;
+        }
+    }
+    if (count > 0)
+    {
+        cout << endl << count << " раз повторяеться максимальное число" << endl;
+    }
+    return a[temp];
+}
+float min(vector<float> a) {
+    int temp = 0;
+    int count = 0;
+    for (int i = 0; i < a.size(); i++)
+    {
+        if (a[temp] > a[i])
+        {
+            temp = i;
+        }
+    }
+    for (int i = 0; i < a.size(); i++)
+    {
+        if (a[temp] == a[i]) {
+            count++;
+        }
+    }
+    if (count > 0)
+    {
+        cout << endl << count << " раз повторяеться минимальное число" << endl;
+    }
+    return a[temp];
+}
+
+int main() {
+    setlocale(LC_ALL, "Ru");
+    cout << "Введите количество элементов в массиве: ";
+    int num_elements;
+    cin >> num_elements;
+    vector<float> arr(num_elements);
+    cout << "Введите элементы массива: ";
+    for (int i = 0; i < num_elements; i++) {
+        cin >> arr[i];
+    }
+    cout << "индекс максимального значения: " << max(arr) << endl << "индекс минимального значения: " << min(arr) << endl << endl;
+    return 0;
+}
+//Инкапсуляция в языке программирования C++ — это механизм скрытия от пользователя частей программы, к которым ему не нужно иметь доступ. Таким образом, инкапсуляция позволяет защитить части программы от нежелательного доступа и изменений.
+//
+//В C++ для реализации инкапсуляции используются модификаторы доступа:
+//
+//— public — доступ разрешён всем;
+//— protected — доступ разрешён производным классам и самому классу;
+//— private — доступ разрешён только самому классу.
+//
+//Пример класса с инкапсуляцией:
+//
+//class SomeClass {
+//private:
+//    int somePrivateData; // Частные данные, доступные только внутри класса
+//
+//protected:
+//    double someProtectedData; // Защищённые данные, доступные также наследникам класса
+//
+//public:
+//    void setSomePrivateData(int value) {
+//        somePrivateData = value; // Метод для установки частных данных
+//    }
+//
+//    int getSomePrivateData() {
+//        return somePrivateData; // Метод для получения частных данных
+//    }
+//
+//    void doSomething() {
+//        // Обработка защищённых данных
+//    }
+//
+//    // Другие открытые методы класса
+//};
+//
+//
+//В данном примере somePrivateData и someProtectedData являются закрытыми данными класса SomeClass. Доступ к ним возможен только через методы класса, такие как setSomePrivateData и getSomePrivateData. Это предотвращает прямой доступ к данным извне класса, что и является основной целью инкапсуляции.
+//Для ввода и вывода данных в консоли на языке программирования C++, вы можете использовать стандартные потоки ввода/вывода: std::cin для ввода и std::cout для вывода. 
